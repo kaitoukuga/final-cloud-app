@@ -131,12 +131,12 @@ class Choice(models.Model):
 
 # Submission model
 class Submission(models.Model):
-   # One enrollment could have multiple submission
-   enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
-   choices = models.ManyToManyField(Choice)
-   # Time and Date Field
-   date_submitted  = models.DateField(default=now, editable=False)  
-   time = models.TimeField(default=now, editable=False)
+    # One enrollment could have multiple submission
+    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
+    choices = models.ManyToManyField(Choice)
+    # Time and Date Field
+    date_submitted  = models.DateField(default=now, editable=False)  
+    time = models.TimeField(default=now, editable=False)
 
     def __str__(self):
         return f"Submission submitted on {self.date_submitted} at {self.time} for {self.enrollment}"
